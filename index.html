@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cornerstone Urban Alliance | Building Hope, Home, and a Future for All in Detroit</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --navy:#0B1F3A;--navy-mid:#142A4E;--gold:#C8962A;--gold-light:#E8B84B;--cream:#F7F4EE;--white:#ffffff;
+  --text-dark:#0B1F3A;--text-mid:#3A4A5C;--text-soft:#6B7A8D;--border:#D8D2C5;
+}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text-dark);overflow-x:hidden}
+.serif{font-family:'Playfair Display',serif}
+
+/* NAV */
+nav{background:var(--navy);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:64px;position:sticky;top:0;z-index:100}
+.nav-logo{color:var(--gold);font-family:'Playfair Display',serif;font-size:15px;font-weight:700;letter-spacing:0.5px;line-height:1.2}
+.nav-logo span{color:var(--white);font-size:11px;font-weight:300;display:block;letter-spacing:2px;text-transform:uppercase}
+.nav-links{display:flex;gap:1.5rem;list-style:none}
+.nav-links a{color:rgba(255,255,255,0.7);font-size:13px;font-weight:400;text-decoration:none;transition:color 0.2s}
+.nav-links a:hover{color:var(--gold)}
+.nav-cta{background:var(--gold);color:var(--navy);font-size:13px;font-weight:500;padding:8px 20px;border-radius:4px;text-decoration:none}
+
+/* HERO */
+.hero{background:var(--navy);min-height:88vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:4rem 4rem 4rem 5rem;gap:4rem;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;right:-120px;top:-120px;width:500px;height:500px;border-radius:50%;background:rgba(200,150,42,0.06)}
+.hero::after{content:'';position:absolute;right:80px;bottom:-80px;width:300px;height:300px;border-radius:50%;background:rgba(200,150,42,0.04)}
+.hero-tag{color:var(--gold);font-size:12px;font-weight:500;letter-spacing:3px;text-transform:uppercase;margin-bottom:1.25rem}
+.hero h1{color:var(--white);font-family:'Playfair Display',serif;font-size:clamp(2.4rem,4.5vw,3.6rem);font-weight:900;line-height:1.1;margin-bottom:1.5rem}
+.hero h1 em{color:var(--gold);font-style:normal}
+.hero-sub{color:rgba(255,255,255,0.65);font-size:16px;font-weight:300;line-height:1.8;max-width:480px;margin-bottom:2.5rem}
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-primary{background:var(--gold);color:var(--navy);font-size:14px;font-weight:500;padding:14px 28px;border-radius:4px;text-decoration:none;transition:background 0.2s}
+.btn-primary:hover{background:var(--gold-light)}
+.btn-outline{color:var(--white);border:1px solid rgba(255,255,255,0.3);font-size:14px;font-weight:400;padding:13px 28px;border-radius:4px;text-decoration:none;transition:border-color 0.2s}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold)}
+.hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.stat-card{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:1.5rem;border-left:3px solid var(--gold)}
+.stat-card .num{color:var(--gold);font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;line-height:1}
+.stat-card .lbl{color:rgba(255,255,255,0.55);font-size:12px;font-weight:400;margin-top:4px;line-height:1.4}
+.stat-card .since{color:rgba(255,255,255,0.3);font-size:11px;margin-top:6px}
+
+/* MISSION BAND */
+.mission-band{background:var(--gold);padding:1.5rem 5rem;display:flex;align-items:center;gap:2rem}
+.mission-band p{color:var(--navy);font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;font-style:italic;flex:1}
+.mission-band .founded{color:rgba(11,31,58,0.5);font-size:12px;letter-spacing:2px;text-transform:uppercase;font-family:'DM Sans',sans-serif;flex-shrink:0}
+
+/* SECTION STRUCTURE */
+section{padding:5rem 5rem}
+.section-label{color:var(--gold);font-size:11px;font-weight:500;letter-spacing:3px;text-transform:uppercase;margin-bottom:0.75rem}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3vw,2.6rem);font-weight:700;color:var(--navy);line-height:1.2;margin-bottom:1rem}
+.section-sub{color:var(--text-mid);font-size:16px;font-weight:300;line-height:1.8;max-width:640px;margin-bottom:3rem}
+
+/* PROGRAMS */
+.programs-bg{background:var(--white)}
+.programs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.prog-card{background:var(--cream);border:1px solid var(--border);border-radius:8px;padding:1.75rem;position:relative;overflow:hidden;transition:transform 0.2s,box-shadow 0.2s;cursor:pointer}
+.prog-card:hover{transform:translateY(-3px);box-shadow:0 8px 30px rgba(11,31,58,0.08)}
+.prog-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--gold)}
+.prog-card.featured{background:var(--navy);border-color:var(--navy)}
+.prog-card.featured::before{background:var(--gold)}
+.prog-icon{width:40px;height:40px;background:rgba(200,150,42,0.12);border-radius:6px;display:flex;align-items:center;justify-content:center;margin-bottom:1rem;font-size:18px}
+.prog-card.featured .prog-icon{background:rgba(200,150,42,0.2)}
+.prog-title{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:var(--navy);margin-bottom:0.5rem}
+.prog-card.featured .prog-title{color:var(--white)}
+.prog-desc{color:var(--text-soft);font-size:13.5px;line-height:1.7}
+.prog-card.featured .prog-desc{color:rgba(255,255,255,0.6)}
+.prog-tag{display:inline-block;background:rgba(200,150,42,0.15);color:var(--gold);font-size:11px;font-weight:500;padding:3px 10px;border-radius:3px;margin-top:0.75rem;letter-spacing:0.5px}
+.prog-card.featured .prog-tag{background:rgba(200,150,42,0.2)}
+
+/* IMPACT */
+.impact-section{background:var(--navy);color:var(--white);padding:5rem}
+.impact-section .section-title{color:var(--white)}
+.impact-section .section-sub{color:rgba(255,255,255,0.6)}
+.impact-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:0}
+.impact-num{font-family:'Playfair Display',serif;font-size:3rem;font-weight:700;color:var(--gold);line-height:1}
+.impact-lbl{color:rgba(255,255,255,0.6);font-size:13px;margin-top:6px;line-height:1.5}
+.impact-divider{border-left:1px solid rgba(255,255,255,0.1);padding-left:1.5rem}
+.impact-divider:first-child{border-left:none;padding-left:0}
+
+/* PILLARS */
+.pillars-section{background:var(--cream)}
+.pillars-row{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:start}
+.pillar-item{display:flex;gap:1rem;padding-bottom:1.75rem;position:relative}
+.pillar-item::before{content:'';position:absolute;left:19px;top:36px;bottom:0;width:1px;background:var(--border)}
+.pillar-item:last-child::before{display:none}
+.pillar-dot{width:40px;height:40px;border-radius:50%;background:var(--navy);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--gold);font-family:'Playfair Display',serif;font-size:11px;font-weight:700;border:2px solid var(--gold)}
+.pillar-num{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:var(--gold);line-height:1;flex-shrink:0;width:36px}
+.pillar-title{font-size:15px;font-weight:500;color:var(--navy);margin-bottom:4px}
+.pillar-desc{font-size:13.5px;color:var(--text-soft);line-height:1.6}
+.pillar-visual{background:var(--navy);border-radius:8px;padding:2.5rem;height:100%;display:flex;flex-direction:column;gap:1.5rem}
+.pillar-visual h3{font-family:'Playfair Display',serif;color:var(--gold);font-size:1.2rem;margin-bottom:0}
+.pillar-quote{color:rgba(255,255,255,0.7);font-size:14.5px;font-style:italic;line-height:1.8;border-left:2px solid var(--gold);padding-left:1.25rem;margin-bottom:0}
+
+/* CTA BAND */
+.cta-band{background:var(--gold);padding:4rem 5rem;display:grid;grid-template-columns:1fr auto;align-items:center;gap:3rem}
+.cta-band h2{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--navy);max-width:560px;line-height:1.3}
+.cta-band-btns{display:flex;flex-direction:column;gap:0.75rem;flex-shrink:0}
+.btn-dark{background:var(--navy);color:var(--white);font-size:14px;font-weight:500;padding:14px 28px;border-radius:4px;text-decoration:none;text-align:center;white-space:nowrap;display:block}
+.btn-ghost{border:1.5px solid var(--navy);color:var(--navy);font-size:14px;font-weight:400;padding:12px 28px;border-radius:4px;text-decoration:none;text-align:center;white-space:nowrap;display:block}
+.btn-ghost:hover,.btn-dark:hover{opacity:0.85}
+
+/* HISTORY */
+.history-section{background:var(--white)}
+.history-grid{display:grid;grid-template-columns:1fr 2fr;gap:4rem;align-items:start}
+.timeline{display:flex;flex-direction:column;gap:0}
+.tl-item{display:flex;gap:1.25rem;padding-bottom:1.75rem;position:relative}
+.tl-item::before{content:'';position:absolute;left:19px;top:40px;bottom:0;width:1px;background:var(--border)}
+.tl-item:last-child::before{display:none}
+.tl-dot{width:40px;height:40px;border-radius:50%;background:var(--navy);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--gold);font-family:'Playfair Display',serif;font-size:10px;font-weight:700;border:2px solid var(--gold);text-align:center;line-height:1.1}
+.tl-year{font-size:12px;color:var(--gold);font-weight:500;margin-bottom:2px}
+.tl-text{font-size:14px;color:var(--text-mid);line-height:1.6}
+
+/* CONTACT */
+.contact-section{background:var(--navy);padding:5rem}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem}
+.contact-section .section-title{color:var(--white)}
+.contact-section .section-sub{color:rgba(255,255,255,0.6)}
+.contact-info{display:flex;flex-direction:column;gap:1.25rem;margin-top:2rem}
+.ci-item{display:flex;gap:1rem;align-items:flex-start}
+.ci-icon{width:36px;height:36px;border-radius:6px;background:rgba(200,150,42,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:15px}
+.ci-text{font-size:14px;color:rgba(255,255,255,0.65);line-height:1.5}
+.ci-text strong{color:var(--white);font-weight:500;display:block;font-size:13px;margin-bottom:1px}
+.contact-form{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:2rem}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
+.form-group{display:flex;flex-direction:column;gap:5px;margin-bottom:1rem}
+.form-group label{font-size:12px;color:rgba(255,255,255,0.5);font-weight:400;letter-spacing:0.5px;text-transform:uppercase}
+.form-group input,.form-group select,.form-group textarea{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.15);border-radius:4px;padding:10px 12px;color:var(--white);font-size:14px;font-family:'DM Sans',sans-serif;outline:none;width:100%}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--gold)}
+.form-group select option{background:#142A4E;color:white}
+.form-group textarea{resize:vertical;min-height:90px}
+.form-submit{background:var(--gold);color:var(--navy);font-size:14px;font-weight:500;padding:13px 28px;border-radius:4px;border:none;cursor:pointer;width:100%;font-family:'DM Sans',sans-serif;transition:background 0.2s}
+.form-submit:hover{background:var(--gold-light)}
+
+/* FOOTER */
+footer{background:#060F1E;padding:2.5rem 5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+footer .f-logo{color:var(--gold);font-family:'Playfair Display',serif;font-size:14px;font-weight:700}
+footer .f-logo span{color:rgba(255,255,255,0.4);font-size:11px;display:block;font-family:'DM Sans',sans-serif;letter-spacing:1px;margin-top:2px}
+footer .f-links{display:flex;gap:1.5rem;flex-wrap:wrap}
+footer .f-links a{color:rgba(255,255,255,0.4);font-size:12px;text-decoration:none}
+footer .f-links a:hover{color:var(--gold)}
+footer .f-copy{color:rgba(255,255,255,0.25);font-size:11px}
+
+/* PARTNER BADGES */
+.gov-badge{background:rgba(200,150,42,0.15);border:1px solid rgba(200,150,42,0.2);padding:4px 10px;border-radius:3px;color:var(--gold);font-size:11px;display:inline-block}
+.check-item{display:flex;gap:0.75rem;align-items:center;padding:0.75rem;background:rgba(255,255,255,0.05);border-radius:6px;border:1px solid rgba(255,255,255,0.08)}
+
+/* RESPONSIVE */
+@media(max-width:960px){
+  .hero{grid-template-columns:1fr;padding:3rem 2rem;min-height:auto;gap:2.5rem}
+  .hero::before,.hero::after{display:none}
+  .hero-stats{grid-template-columns:1fr 1fr}
+  .mission-band{padding:1.5rem 2rem;flex-direction:column;align-items:flex-start}
+  section{padding:3.5rem 2rem}
+  .programs-grid{grid-template-columns:1fr}
+  .impact-grid{grid-template-columns:1fr 1fr}
+  .impact-divider{border-left:none;padding-left:0;border-top:1px solid rgba(255,255,255,0.1);padding-top:1.5rem}
+  .impact-divider:first-child{border-top:none;padding-top:0}
+  .pillars-row{grid-template-columns:1fr}
+  .cta-band{padding:3rem 2rem;grid-template-columns:1fr}
+  .history-grid{grid-template-columns:1fr}
+  .contact-section{padding:3.5rem 2rem}
+  .contact-grid{grid-template-columns:1fr}
+  footer{padding:2rem;flex-direction:column;align-items:flex-start}
+  nav .nav-links{display:none}
+}
+@media(max-width:500px){
+  .hero-stats{grid-template-columns:1fr}
+  .form-row{grid-template-columns:1fr}
+  .cta-band-btns{width:100%}
+}
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <div class="nav-logo">
+    Cornerstone Urban Alliance
+    <span>Detroit, Michigan · 501(c)(3)</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#mission">Our Mission</a></li>
+    <li><a href="#programs">Programs</a></li>
+    <li><a href="#impact">Impact</a></li>
+    <li><a href="#about">Our Story</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Get Help Today</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero" id="mission">
+  <div>
+    <div class="hero-tag">Serving Detroit Since 2022 · Est. Lineage 1990</div>
+    <h1 class="serif">Building <em>Hope,</em><br>Home &amp; a<br>Future for All</h1>
+    <p class="hero-sub">Cornerstone Urban Alliance transforms lives in Detroit's most underserved neighborhoods — through housing, workforce training, youth empowerment, reentry support, and community wellness.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Apply for Services</a>
+      <a href="#programs" class="btn-outline">See Our Programs</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="stat-card">
+      <div class="num">3,200+</div>
+      <div class="lbl">Individuals served across all programs</div>
+      <div class="since">Combined w/ Light House YC</div>
+    </div>
+    <div class="stat-card">
+      <div class="num">63%</div>
+      <div class="lbl">Employment &amp; apprenticeship transition rate</div>
+      <div class="since">Detroit Workforce Initiative</div>
+    </div>
+    <div class="stat-card">
+      <div class="num">500+</div>
+      <div class="lbl">Detroit residents housed &amp; stabilized</div>
+      <div class="since">Since Detroit launch, 2022</div>
+    </div>
+    <div class="stat-card">
+      <div class="num">$6.5M+</div>
+      <div class="lbl">In grants managed with clean audit record</div>
+      <div class="since">Federal &amp; state awards</div>
+    </div>
+  </div>
+</div>
+
+<!-- MISSION BAND -->
+<div class="mission-band">
+  <p>"We address housing, workforce, behavioral health, and youth development together — because lasting change requires the whole person."</p>
+  <div class="founded">Est. 1990 · Light House YC &amp; CUA · Detroit, MI</div>
+</div>
+
+<!-- PROGRAMS -->
+<section class="programs-bg" id="programs">
+  <div class="section-label">What We Do</div>
+  <h2 class="section-title serif">Six Core Programs.<br>One Holistic Mission.</h2>
+  <p class="section-sub">Every program is designed to meet Detroit residents where they are — and walk alongside them toward stability, dignity, and long-term success. All services are free for eligible residents.</p>
+  <div class="programs-grid">
+    <div class="prog-card featured">
+      <div class="prog-icon">🏗</div>
+      <div class="prog-title">Workforce Reentry Initiative</div>
+      <p class="prog-desc">Construction workforce training and paid transitional employment for justice-involved adults. OSHA-10 and NCCER credentialing, apprenticeship placement with LIUNA Local 334 and Carpenters Local 687, and 7 integrated service domains from pre-release through post-release stabilization.</p>
+      <span class="prog-tag">Second Chance Act · BJA Funded</span>
+    </div>
+    <div class="prog-card">
+      <div class="prog-icon">🏡</div>
+      <div class="prog-title">Affordable Housing &amp; EcoNest Living</div>
+      <p class="prog-desc">Safe, affordable housing for families, veterans, and individuals experiencing homelessness. EcoNest Living Solutions offers modular, energy-efficient eco-homes — making sustainable living accessible across Detroit's neighborhoods for those who need it most.</p>
+      <span class="prog-tag">Housing Stability</span>
+    </div>
+    <div class="prog-card">
+      <div class="prog-icon">🧠</div>
+      <div class="prog-title">Youth Behavioral Health Diversion</div>
+      <p class="prog-desc">Community-based diversion and integrated treatment for youth ages 12–17 with substance use and mental health needs. Cross-system coordination with Detroit Police Department, Wayne County Juvenile Court, and DWIHN — connecting young people to evidence-based care before deeper justice involvement.</p>
+      <span class="prog-tag">OJJDP · CYBHDI Initiative</span>
+    </div>
+    <div class="prog-card">
+      <div class="prog-icon">🌟</div>
+      <div class="prog-title">Youth Reentry Pathways</div>
+      <p class="prog-desc">A pre-release-to-post-release continuum for justice-involved youth ages 16–24. Individualized Reentry Pathway Plans, peer mentorship, transitional housing, paid work-based learning through neighborhood revitalization projects, and 24 months of post-release community engagement.</p>
+      <span class="prog-tag">OJJDP Reentry · Youth</span>
+    </div>
+    <div class="prog-card">
+      <div class="prog-icon">🎖</div>
+      <div class="prog-title">Veteran Support Services</div>
+      <p class="prog-desc">Specialized services honoring those who served — housing assistance, job placement, counseling, and benefits navigation for Detroit-area veterans transitioning to civilian life or facing housing and employment instability. Dedicated case management and wraparound support.</p>
+      <span class="prog-tag">Veteran Services</span>
+    </div>
+    <div class="prog-card">
+      <div class="prog-icon">💪</div>
+      <div class="prog-title">Community Wellness</div>
+      <p class="prog-desc">Wellness workshops, support groups, financial literacy education, behavioral health linkage, and wraparound case management. Promoting resilience and whole-person health for residents across all program areas — because healing and stability go hand in hand.</p>
+      <span class="prog-tag">Wraparound Support</span>
+    </div>
+  </div>
+</section>
+
+<!-- IMPACT -->
+<section class="impact-section" id="impact">
+  <div class="section-label">Our Impact</div>
+  <h2 class="section-title serif">35 Years of Lineage.<br>Results That Speak.</h2>
+  <p class="section-sub">From Sacramento to Detroit — our work is measured in lives stabilized, futures built, and communities strengthened. Every number represents a person.</p>
+  <div class="impact-grid">
+    <div class="impact-divider">
+      <div class="impact-num">180+</div>
+      <div class="impact-lbl">Justice-involved adults trained through Detroit Construction Workforce Initiative since 2022</div>
+    </div>
+    <div class="impact-divider">
+      <div class="impact-num">63%</div>
+      <div class="impact-lbl">Employment &amp; apprenticeship transition rate — exceeding the national baseline by more than 20 points</div>
+    </div>
+    <div class="impact-divider">
+      <div class="impact-num">12–18</div>
+      <div class="impact-lbl">Detroit residential properties rehabilitated through paid training job sites in Wayne County</div>
+    </div>
+    <div class="impact-divider">
+      <div class="impact-num">35+</div>
+      <div class="impact-lbl">Years of combined organizational experience — Light House Youth Centers (1990) + CUA (2018)</div>
+    </div>
+  </div>
+</section>
+
+<!-- APPROACH -->
+<section class="pillars-section">
+  <div class="pillars-row">
+    <div>
+      <div class="section-label">Our Approach</div>
+      <h2 class="section-title serif">Why Holistic<br>Support Works</h2>
+      <p class="section-sub">We don't treat housing, employment, and wellness as separate problems. We address them together — because they always are.</p>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="pillar-num">01</div>
+          <div>
+            <div class="pillar-title">Pre-release planning &amp; in-facility access</div>
+            <p class="pillar-desc">Case managers enter facilities before release — building relationships, developing Individual Reentry Plans, and lining up housing and employment before someone walks out the door.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="pillar-num">02</div>
+          <div>
+            <div class="pillar-title">Immediate stabilization on release</div>
+            <p class="pillar-desc">Housing navigation, transportation support, benefits enrollment, and employer onboarding in the first 72 hours — the highest-risk window for reoffending and housing loss.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="pillar-num">03</div>
+          <div>
+            <div class="pillar-title">Workforce training &amp; paid employment</div>
+            <p class="pillar-desc">Hands-on construction training at active rehab sites, OSHA-10 and NCCER credentials, and direct employer partnerships — turning training into real, lasting jobs and union apprenticeships.</p>
+          </div>
+        </div>
+        <div class="tl-item" style="padding-bottom:0">
+          <div class="pillar-num">04</div>
+          <div>
+            <div class="pillar-title">Long-term retention &amp; community connection</div>
+            <p class="pillar-desc">30-, 90-, and 180-day follow-up, behavioral health linkage, peer mentorship, and community wellness programming — sustaining the gains and preventing relapse into crisis.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pillar-visual">
+      <h3 class="serif">Rooted in Detroit. Trusted by the Community.</h3>
+      <p class="pillar-quote">"Our combination of established community presence, cross-system experience, and deep commitment to Detroit's youth and families positions us to deliver with excellence, accountability, and lasting impact."</p>
+      <div style="display:flex;flex-direction:column;gap:0.75rem">
+        <div class="check-item"><span style="color:var(--gold);font-size:14px">✓</span><span style="color:rgba(255,255,255,0.65);font-size:13px">Wayne County Jail &amp; MDOC pre-release access via MOU</span></div>
+        <div class="check-item"><span style="color:var(--gold);font-size:14px">✓</span><span style="color:rgba(255,255,255,0.65);font-size:13px">Wayne County Juvenile Court &amp; DPD cross-system coordination</span></div>
+        <div class="check-item"><span style="color:var(--gold);font-size:14px">✓</span><span style="color:rgba(255,255,255,0.65);font-size:13px">U.R. Holdings, Inc. — paid construction job sites since 2022</span></div>
+        <div class="check-item"><span style="color:var(--gold);font-size:14px">✓</span><span style="color:rgba(255,255,255,0.65);font-size:13px">Michigan Works! Offender Success co-enrollment pathway</span></div>
+        <div class="check-item"><span style="color:var(--gold);font-size:14px">✓</span><span style="color:rgba(255,255,255,0.65);font-size:13px">Detroit Public Schools, DWIHN &amp; Detroit Police Dept. partnerships</span></div>
+      </div>
+      <div style="margin-top:auto;padding-top:1.25rem;border-top:1px solid rgba(255,255,255,0.1)">
+        <div style="color:rgba(255,255,255,0.4);font-size:11px;letter-spacing:2px;text-transform:uppercase;margin-bottom:0.75rem">Funding Partners</div>
+        <div style="display:flex;flex-wrap:wrap;gap:0.5rem">
+          <span class="gov-badge">BJA / DOJ</span>
+          <span class="gov-badge">OJJDP</span>
+          <span class="gov-badge">CDBG</span>
+          <span class="gov-badge">MI Dept. of Labor</span>
+          <span class="gov-badge">Second Chance Act</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<div class="cta-band">
+  <h2 class="serif">Ready to Get Help, Partner With Us, or Support Our Work in Detroit?</h2>
+  <div class="cta-band-btns">
+    <a href="#contact" class="btn-dark">Apply for Services</a>
+    <a href="#contact" class="btn-ghost">Donate or Volunteer</a>
+  </div>
+</div>
+
+<!-- HISTORY -->
+<section class="history-section" id="about">
+  <div class="history-grid">
+    <div>
+      <div class="section-label">Our Story</div>
+      <h2 class="section-title serif">35 Years of Service.<br>Built on Proven Ground.</h2>
+      <div class="timeline" style="margin-top:2rem">
+        <div class="tl-item">
+          <div class="tl-dot">1990</div>
+          <div>
+            <div class="tl-year">1990 · Sacramento, CA</div>
+            <p class="tl-text">Light House Youth Centers, Inc. founded — launching 35 years of reentry, workforce, and community programming, ultimately serving 3,200+ individuals across California.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot">2018</div>
+          <div>
+            <div class="tl-year">2018 · CUA Established</div>
+            <p class="tl-text">Cornerstone Urban Alliance founded as an extension of Light House YC — carrying forward its program model, institutional knowledge, and commitment to measurable outcomes.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot">2022</div>
+          <div>
+            <div class="tl-year">2022 · Detroit Launch</div>
+            <p class="tl-text">CUA relocates operations to Detroit — one of the nation's highest-poverty cities — launching the Construction Workforce Initiative with U.R. Holdings, Inc. and achieving a 63% employment transition rate in year one.</p>
+          </div>
+        </div>
+        <div class="tl-item" style="padding-bottom:0">
+          <div class="tl-dot" style="font-size:9px">Today</div>
+          <div>
+            <div class="tl-year">Today · 6 Core Programs</div>
+            <p class="tl-text">CUA operates six integrated programs across reentry, workforce, youth behavioral health, housing, veterans services, and community wellness — funded by federal and state grants with a clean compliance record.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <p style="color:var(--text-soft);font-size:15px;line-height:1.9;margin-bottom:1.5rem;margin-top:3.5rem">Detroit has one of the highest urban poverty rates in the nation. Chronic unemployment, housing instability, an overwhelmed juvenile justice system, and reentry barriers compound each other — trapping families in cycles that no single program can break. That's why we operate across all of them.</p>
+      <p style="color:var(--text-soft);font-size:15px;line-height:1.9;margin-bottom:2rem">Cornerstone Urban Alliance is headquartered at 11000 W McNichols Rd in Detroit — operating with the trust of Wayne County's institutions, the credibility of three decades of organizational lineage, and the urgency of a city that needs it most.</p>
+      <div style="background:var(--cream);border:1px solid var(--border);border-radius:8px;padding:1.75rem;border-left:3px solid var(--gold)">
+        <div style="font-size:11px;color:var(--gold);font-weight:500;letter-spacing:2px;text-transform:uppercase;margin-bottom:0.75rem">Headquarters</div>
+        <div style="font-size:15px;color:var(--navy);font-weight:500;margin-bottom:0.25rem">11000 W McNichols Rd, Suite 323</div>
+        <div style="font-size:14px;color:var(--text-soft);margin-bottom:1rem">Detroit, MI 48221</div>
+        <div style="display:flex;flex-direction:column;gap:0.5rem">
+          <a href="tel:18003136403" style="color:var(--text-mid);font-size:14px;text-decoration:none">📞 1-800-313-6403</a>
+          <a href="mailto:info@cornerstoneurbanalliance.org" style="color:var(--text-mid);font-size:14px;text-decoration:none">✉ info@cornerstoneurbanalliance.org</a>
+        </div>
+      </div>
+      <div style="margin-top:1.5rem;background:var(--cream);border:1px solid var(--border);border-radius:8px;padding:1.75rem">
+        <div style="font-size:11px;color:var(--gold);font-weight:500;letter-spacing:2px;text-transform:uppercase;margin-bottom:0.75rem">All Services Are Free</div>
+        <p style="font-size:14px;color:var(--text-soft);line-height:1.7">Every program Cornerstone Urban Alliance provides is free of charge to eligible Detroit residents. No fees, no barriers — just compassionate, comprehensive support for the people who need it most.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="contact-grid">
+    <div>
+      <div class="section-label" style="color:var(--gold)">Connect With Us</div>
+      <h2 class="section-title serif">We Respond to Every Inquiry Within 24 Hours.</h2>
+      <p class="section-sub">Whether you're seeking services, looking to partner, or want to support our mission — we want to hear from you.</p>
+      <div class="contact-info">
+        <div class="ci-item">
+          <div class="ci-icon">📍</div>
+          <div class="ci-text"><strong>Address</strong>11000 W McNichols Rd, STE 323, Detroit, MI 48221</div>
+        </div>
+        <div class="ci-item">
+          <div class="ci-icon">📞</div>
+          <div class="ci-text"><strong>Phone</strong>1-800-313-6403</div>
+        </div>
+        <div class="ci-item">
+          <div class="ci-icon">✉</div>
+          <div class="ci-text"><strong>Email</strong>info@cornerstoneurbanalliance.org</div>
+        </div>
+        <div class="ci-item">
+          <div class="ci-icon">🕐</div>
+          <div class="ci-text"><strong>Response Time</strong>All inquiries answered within 24 hours</div>
+        </div>
+        <div class="ci-item">
+          <div class="ci-icon">🆓</div>
+          <div class="ci-text"><strong>No Fees</strong>All services are free for eligible Detroit residents</div>
+        </div>
+      </div>
+    </div>
+    <div class="contact-form">
+      <div style="margin-bottom:1.5rem">
+        <div style="color:var(--white);font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;margin-bottom:0.25rem">Send Us a Message</div>
+        <div style="color:rgba(255,255,255,0.4);font-size:13px">No fees. No judgment. Just support.</div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label>First Name</label><input type="text" placeholder="First name"></div>
+        <div class="form-group"><label>Last Name</label><input type="text" placeholder="Last name"></div>
+      </div>
+      <div class="form-group"><label>Email</label><input type="email" placeholder="your@email.com"></div>
+      <div class="form-group"><label>Phone</label><input type="tel" placeholder="(313) 555-0100"></div>
+      <div class="form-group">
+        <label>I'm Interested In</label>
+        <select>
+          <option value="">Select a program...</option>
+          <option>Workforce Reentry Training</option>
+          <option>Affordable Housing / EcoNest Living</option>
+          <option>Youth Behavioral Health Diversion</option>
+          <option>Youth Reentry Pathways</option>
+          <option>Veteran Support Services</option>
+          <option>Community Wellness</option>
+          <option>Volunteering or Partnering</option>
+          <option>Donating</option>
+        </select>
+      </div>
+      <div class="form-group"><label>Message (Optional)</label><textarea placeholder="Tell us a little about your situation or how we can help..."></textarea></div>
+      <button class="form-submit">Send Message →</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="f-logo">
+    Cornerstone Urban Alliance
+    <span>© 2025 · Detroit, Michigan · 501(c)(3) Nonprofit · EIN on file</span>
+  </div>
+  <div class="f-links">
+    <a href="#mission">Home</a>
+    <a href="#programs">Programs</a>
+    <a href="#impact">Impact</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+    <a href="#">EcoNest Living</a>
+    <a href="#">Youth Program</a>
+    <a href="#">Privacy Policy</a>
+    <a href="#">Terms of Service</a>
+  </div>
+  <div class="f-copy">11000 W McNichols Rd STE 323 · Detroit MI 48221 · 1-800-313-6403</div>
+</footer>
+
+</body>
+</html>
